@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-	before_action :private_access
+	before_action :authenticate_user!
   def index
     @expenses = Expense.order("date DESC")
     if params[:concept].present?
